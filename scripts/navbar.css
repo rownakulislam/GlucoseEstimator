@@ -1,0 +1,50 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(120deg,#15AAFF ,#ADF7F2);
+
+    height: auto;
+    overflow: auto;
+}
+li,a{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+.logo:hover{
+    cursor: pointer;
+}
+.navbar{
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0,0,0,0);
+}
+.menu{
+    display: none;
+}
+.nav{
+    display: flex;
+    list-style: none;
+}
+.nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav li a{
+    font-weight: 900;
+    color: #5F4B8BFF;
+    transition: all 0.3s ease 0s;
+}
+.nav li a:hover{
+    color: black;
+    background-color: #15AAFF;
+    padding: 10px 20px;
+    border-radius: 20px;
+}

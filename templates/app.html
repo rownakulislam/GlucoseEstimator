@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../scripts/navbar.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Document</title>
+    <style>
+        li,a{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    }
+    .logo:hover{
+        cursor: pointer;
+    }
+    .navbar{
+        height: 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+    }
+    .menu{
+    display: none;
+}
+.nav{
+    display: flex;
+    list-style: none;
+}
+.nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav li a{
+    font-weight: 900;
+    color: #5F4B8BFF;
+    transition: all 0.3s ease 0s;
+}
+.nav li a:hover{
+    color: black;
+    background-color: #ADF7F2;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(120deg,#15AAFF ,#ADF7F2);
+            height: 100vh;
+            overflow: auto;
+            color: black;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .form h1{
+            text-align: center;
+            padding: 0 0 20px 0;
+            color: #ADF7F2;
+            border-bottom: 1px solid whitesmoke;
+        }
+        .form form{
+            align-items: center;
+            /* padding: 0px 40px; */
+            box-sizing: border-box;
+        }
+        form .text{
+            position: relative;
+            font-size: 10px;
+            font-weight: 30;
+            border-bottom:2px solid whitesmoke ;
+            margin: 20px 0px;
+        }
+        .form input{
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 15px;
+            border: none;
+            background: none;
+            outline:none;
+            color: black;
+        }
+        input[type="submit"]{
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background: #ADF7F2;
+
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            color: black;
+        }
+        input[type="submit"]:hover{
+            transition: all 1s ease 0s;
+            border-radius: 30px;
+            background: #19547b;
+            color:black;
+            border-color: tan;
+        }
+        .form .text label{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+        <div class="navbar">
+        <img class="logo" src="/static/logo3.png" height="100" width="100" >
+        <nav>
+            <ul class="nav">
+                <li class="nav-item-u"><a href="{{ url_for('predict_page')}}">Estimate Glucose</a></li>
+                <li class="nav-item-u"><a href="{{ url_for('vis_page')}}">Visualization</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="form" style="margin-top: 90px">
+        <h1>Glucose Level Estimation</h1>
+        <form action="{{ url_for('predict_glucose')}}" method="POST">
+            <div class="text">
+                <label for="age">AGE:</label>
+                <input type="text" id="age" name="age" required/>
+            </div>
+            <div class="text">
+                <label for="sbp">Systolic bloodpressure:</label>
+                <input type="text" id="sbp" name="sbp"  required/>
+            </div>
+            <div class="text">
+                <label for="dbp">Diastolic bloodpressure:</label>
+                <input type="text" id="dbp" name="dbp" required/>
+            </div>
+            <div class="text">
+                 <label for="pulse">Pulse rate:</label>
+                <input type="text" id="pulse" name="pulse" required/>
+            </div>
+            <div class="text">
+                <label for="bmi">BMI:</label>
+               <input type="text" id="bmi" name="bmi" required/>
+           </div>
+           <div class="text">
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" name="weight" required/>
+            </div>
+            <div class="text">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" required/>
+            </div>
+            <input type="submit" id="submit" onclick="Onclick()" name="submit"/>
+        </form>
+        <p style="text-align: center;">{{ output }}</p>
+    </div>
+</body>
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+</html>

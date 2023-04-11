@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+        li,a{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    }
+    .logo:hover{
+        cursor: pointer;
+    }
+    .navbar{
+        margin-top: 20px;
+        height: 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 8%;
+    }
+    .menu{
+    display: none;
+}
+.nav{
+    display: flex;
+    list-style: none;
+}
+.nav li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav li a{
+    font-weight: 900;
+    color: #5F4B8BFF;
+    transition: all 0.3s ease 0s;
+}
+.nav li a:hover{
+    color: black;
+    background-color: #15AAFF;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(120deg,#15AAFF ,#ADF7F2) repeat-x scroll 0% 0% #0c6027;;
+            height: 100vh;
+            overflow: auto;
+            color: black;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .image{
+            margin-top: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .container{
+            max-width: 500px;
+            margin: auto;
+            background: #89f0e9;
+            overflow: auto;
+        }
+        .gallery{
+            margin: 15px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 450px;
+        }
+        .gallery img{
+            width: 100%;
+            height: auto;
+        }
+        .desc{
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="/static/logo3.png" height="100" width="100" >
+        <nav>
+            <ul class="nav">
+                <li class="nav-item-u"><a href="{{ url_for('predict_page')}}">Estimate Glucose</a></li>
+                <li class="nav-item-u"><a href="{{ url_for('vis_page')}}">Visualization</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br>
+    <div class="container">
+        <div class="gallery">
+            <img src="../static/dataset.png" alt="">
+            <div class="desc">Snapchot of the dataset</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/dataset_correlation.png" alt="">
+            <div class="desc">Correlation between the features</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/dataset_sns.png" alt="">
+            <div class="desc">Distribution of the data</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/relation_age.png" alt="">
+            <div class="desc">Relation between age and glucose level</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/relation_sbp.png" alt="">
+            <div class="desc">Relation between Systolic blood pressure and glucose level</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/relation_dpb.png" alt="">
+            <div class="desc">Relation between Diastolic blood pressure and glucose level</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/relation_pulse.png" alt="">
+            <div class="desc">Relation between pulse and glucose level</div>
+        </div>
+        <div class="gallery">
+            <img src="../static/relation_bmi.png" alt="">
+            <div class="desc">Relation between BMI and glucose level</div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
